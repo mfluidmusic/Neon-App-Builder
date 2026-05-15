@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .neon-text {
+    text-shadow: 
+      0 0 10px #67e8f9,
+      0 0 20px #67e8f9,
+      0 0 40px #c026d3,
+      0 0 80px #c026d3;
+    animation: neon-pulse 3s infinite alternate;
+  }
+  @keyframes neon-pulse {
+    from { text-shadow: 0 0 10px #67e8f9, 0 0 20px #67e8f9, 0 0 40px #c026d3; }
+    to { text-shadow: 0 0 20px #67e8f9, 0 0 40px #67e8f9, 0 0 80px #c026d3, 0 0 120px #c026d3; }
+  }
+
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #67e8f9;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #67e8f9, 0 0 20px #c026d3;
+    pointer-events: none;
+    animation: particle-float 3.5s linear forwards;
+  }
+
+  @keyframes particle-float {
+    0% { transform: scale(1) translate(0, 0); opacity: 1; }
+    100% { transform: scale(0) translate(var(--dx), var(--dy)); opacity: 0; }
+  }
+}
